@@ -1,6 +1,6 @@
-package I_first_steps;
+package _1_first_steps;
 
-public class I_HelloWorld {
+public class _1_HelloWorld {
 
     public static void main(String[] args) {
 

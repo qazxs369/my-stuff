@@ -1,6 +1,6 @@
-package I_first_steps;
+package _1_first_steps;
 
-public class II_ByteShortIntLong {
+public class _2_ByteShortIntLong {
 
     public static void main(String[] args) {
 

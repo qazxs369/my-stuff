@@ -1,6 +1,6 @@
-package I_first_steps;
+package _1_first_steps;
 
-public class III_PrimitiveTypesChallenge {
+public class _3_PrimitiveTypesChallenge {
 
     public static void main(String[] args) {
 

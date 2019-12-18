@@ -1,6 +1,6 @@
-package I_first_steps;
+package _1_first_steps;
 
-public class IV_FloatAndDouble {
+public class _4_FloatAndDouble {
 
     public static void main(String[] args){
 
