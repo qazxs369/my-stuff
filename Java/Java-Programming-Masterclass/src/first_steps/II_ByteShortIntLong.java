@@ -1,19 +1,8 @@
-package com.company;
+package first_steps;
 
-public class Main {
+public class II_ByteShortIntLong {
 
     public static void main(String[] args) {
-
-        System.out.println("El peluca sape");
-
-        int myFirstNumber = (10 + 5) + (2*10);
-        int mySecondNumber = 12;
-        int myThirdNumber = myFirstNumber * 2;
-        int myTotal = myFirstNumber + mySecondNumber + myThirdNumber;
-        int myLastOne = 1000 - myTotal;
-
-        System.out.println(myLastOne);
-
 
         int myValue = 1_000;
         int myMinIntValue = Integer.MIN_VALUE;
@@ -44,23 +33,9 @@ public class Main {
         long bigLongLiteralValue = 2_147_483_648L;
         System.out.println(bigLongLiteralValue);
 
-        myTotal = (myMinIntValue / 2);
+        int myTotal = (myMinIntValue / 2);
         //byte myNewByteValue = (myMinByteValue / 2); ERROR, la division da int
         byte myNewByteValue = (byte) (myMinByteValue / 2);
         short myNewShortValue = (short) (myMinShortValue / 2);
-
-
-        byte byteValue = 10;
-        short shortValue = 20;
-        int intValue = 50;
-        int sum = byteValue + shortValue + intValue;
-        long longTotal = 50000L + (10*sum);
-        System.out.println(longTotal);
-
-        short shortTotal = (short) (1000 + 10 * (byteValue
-                + shortValue + intValue));
-
-
-
     }
 }
