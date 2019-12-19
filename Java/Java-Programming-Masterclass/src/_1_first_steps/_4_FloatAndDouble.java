@@ -37,6 +37,8 @@ public class _4_FloatAndDouble {
         System.out.println("MyDoubleValue= " + dividedDoubleValue);
 
         /*
+        * HERE COMES A NEW CHALLENGER
+        *
         * Convert a given number of pounds to kilograms
         * HINT: 1 pound is equal to 0.45359237 of a kilogram
         * */

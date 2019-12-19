@@ -75,5 +75,32 @@ public class _7_OperatorsOperandsExpressions {
             System.out.println("Either or both of the conditions are posta. " +
                     "Por que en spanglish jajaj");
         }
+
+        boolean isCar = false;
+        boolean wasCar = isCar ? true: false;
+
+        /*
+        * HERE COMES A NEW CHALLENGER
+        *
+        * Create a double var of 20.00 and another of 80.00. Add both and multiply
+        * by 100.00, use the remainder op to figure out the reminder of that and 40.00.
+        * Create a boolean var that assigns true if the reminder is 0, otherwise false.
+        * Output that boolean with an if-then as "Got some reminder" if true
+        * */
+
+        double myDoubleValue = 20.00d;
+        double mySecondDoubleValue = 80.00d;
+        /*
+        * ojo que si hacia:
+        * myDoubleValue + mySecondDoubleValue * 100.00d
+        * me quedaba 20 + 8000 en vez de (20 + 80) * 100
+        * porque las modificaciones como * preceden a las adiciones en java
+        * */
+        double doubleSum = myDoubleValue + mySecondDoubleValue;
+        doubleSum *= 100.00d;
+        boolean hasReminder = (doubleSum % 40.00d) == 0;
+        if (hasReminder) {
+            System.out.println("Got some reminder, wacho");
+        }
     }
 }

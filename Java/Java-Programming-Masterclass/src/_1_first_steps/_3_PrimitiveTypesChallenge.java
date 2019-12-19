@@ -5,6 +5,8 @@ public class _3_PrimitiveTypesChallenge {
     public static void main(String[] args) {
 
         /*
+        * HERE COMES A NEW CHALLENGER
+        *
         * Your challenge is to create a byte variable and set it to any valid byte
         * number, it doesn't matter. Same for a short and int variables. Lastly,
         * create a variable of type long and make it equal to 50000 plus 10 times

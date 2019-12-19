@@ -5,7 +5,7 @@ public class _5_CharAndBoolean {
     public static void main(String[] args){
 
         char myChar = 'D'; // char myChar = 'DD' esta mal, va un caracter nomas
-        System.out.println("This year give her the " + myChar);
+        System.out.println("Hello, I'm Mister " + myChar);
 
         char myUnicodeChar = '\u00A9';
         System.out.println(myUnicodeChar);
