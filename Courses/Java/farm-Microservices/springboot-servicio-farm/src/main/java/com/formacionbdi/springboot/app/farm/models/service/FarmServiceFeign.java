@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-import com.formacionbdi.springboot.app.commons.models.entity.Chick;
+import com.formacionbdi.springboot.app.commons.models.entity.Bird;
 import com.formacionbdi.springboot.app.commons.models.entity.Egg;
 import com.formacionbdi.springboot.app.commons.models.entity.Farm;
 import com.formacionbdi.springboot.app.farm.clientes.ChickClienteRest;
@@ -45,7 +45,7 @@ public class FarmServiceFeign implements IFarmService {
 	}
 
 	@Override
-	public Chick saveFarmChick() {
+	public Bird saveFarmChick() {
 		return clienteChickFeign.comprar();
 	}
 
@@ -121,7 +121,7 @@ public class FarmServiceFeign implements IFarmService {
 	}
 
 	@Override
-	public Chick updateChickById(Long chickID) {
+	public Bird updateChickById(Long chickID) {
 		return clienteChickFeign.chickUpdate(chickID);
 	}
 
@@ -167,7 +167,7 @@ public class FarmServiceFeign implements IFarmService {
 	}
 
 	@Override
-	public Chick findChickById(Long chickID) {
+	public Bird findChickById(Long chickID) {
 		return clienteChickFeign.detalle(chickID);
 	}
 

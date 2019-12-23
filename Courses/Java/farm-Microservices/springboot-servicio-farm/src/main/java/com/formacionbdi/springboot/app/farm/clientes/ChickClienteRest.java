@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.formacionbdi.springboot.app.commons.models.entity.Chick;
+import com.formacionbdi.springboot.app.commons.models.entity.Bird;
 import com.formacionbdi.springboot.app.farm.models.dto.ChickDTO;
 
 @FeignClient(name = "servicio-chicks")
@@ -21,11 +21,11 @@ public interface ChickClienteRest {
 	public List<ChickDTO> listar();
 	
 	@GetMapping("/verChick/{chickID}")
-	public Chick detalle(@PathVariable Long chickID);
+	public Bird detalle(@PathVariable Long chickID);
 	
 	@PostMapping("/comprarChick")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Chick comprar();
+	public Bird comprar();
 	
 	@DeleteMapping("/venderChick/{chickID}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
@@ -33,6 +33,6 @@ public interface ChickClienteRest {
 	
 	@PutMapping("/updateChick/{chickID}")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Chick chickUpdate(@PathVariable Long chickID);
+	public Bird chickUpdate(@PathVariable Long chickID);
 
 }

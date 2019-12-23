@@ -2,7 +2,7 @@ package com.formacionbdi.springboot.app.farm.models.service;
 
 import java.util.List;
 
-import com.formacionbdi.springboot.app.commons.models.entity.Chick;
+import com.formacionbdi.springboot.app.commons.models.entity.Bird;
 import com.formacionbdi.springboot.app.commons.models.entity.Egg;
 import com.formacionbdi.springboot.app.commons.models.entity.Farm;
 import com.formacionbdi.springboot.app.farm.models.dto.ChickDTO;
@@ -31,7 +31,7 @@ public interface IFarmService {
 	public Farm saveFarm(Farm farm);
 	
 	public Egg findEggById(Long eggID);
-	public Chick findChickById(Long chickID);
+	public Bird findChickById(Long chickID);
 	
 	/*** METODOS CONSUMIDOS DE EGG Y CHICK ***/
 	
@@ -39,11 +39,11 @@ public interface IFarmService {
 	public List<ChickDTO> findAllFarmChickDTOS();
 	
 	public Egg saveFarmEgg();
-	public Chick saveFarmChick();
+	public Bird saveFarmChick();
 	
 	public void deleteFarmEggById(Long eggID);
 	public void deleteFarmChickById(Long chickID);
 	
 	public Egg updateEggById(Long eggID);
-	public Chick updateChickById(Long chickID);
+	public Bird updateChickById(Long chickID);
 }

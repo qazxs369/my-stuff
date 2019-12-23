@@ -30,11 +30,16 @@ public class EggImpl implements IEggService{
 	@Override
 	@Transactional(readOnly = true)
 	public List<EggDTO> findAllEggDTOS() {
+		
 		ModelMapper modelMapper = new ModelMapper();
+		
 		List<EggDTO> eggDTOS = new ArrayList<>();
 		List<Egg> eggs = (List<Egg>) eggDao.findAll();
+		
 		for (int i = 0; i < eggs.size(); i++) {
+			
 			EggDTO eggDTO = modelMapper.map(eggs.get(i), EggDTO.class);
+			
 			eggDTOS.add(eggDTO);
 		}
 		return eggDTOS;
@@ -42,65 +47,56 @@ public class EggImpl implements IEggService{
 	
 	@Override
 	@Transactional(readOnly = true)
-	public List<EggDTO> findChickEggDTOS() {
+	public List<EggDTO> findEggDTOSBySpecies(String species) {
+		
 		ModelMapper modelMapper = new ModelMapper();
+		
 		List<EggDTO> eggDTOS = new ArrayList<>();
 		List<Egg> eggs = (List<Egg>) eggDao.findAll();
+		
 		for (int i = 0; i < eggs.size(); i++) {
-			if(eggs.get(i).getSpecies() == "Chick") {
+			if (eggs.get(i).getSpecies() == species) {
+				
 				EggDTO eggDTO = modelMapper.map(eggs.get(i), EggDTO.class);
+				
 				eggDTOS.add(eggDTO);
 			}
 		}
 		return eggDTOS;
 	}
-
+	
 	@Override
 	@Transactional(readOnly = true)
-	public List<EggDTO> findDuckEggDTOS() {
+	public EggDTO findEggDTOById(Long eggID) {
+		
 		ModelMapper modelMapper = new ModelMapper();
-		List<EggDTO> eggDTOS = new ArrayList<>();
-		List<Egg> eggs = (List<Egg>) eggDao.findAll();
-		for (int i = 0; i < eggs.size(); i++) {
-			if(eggs.get(i).getSpecies() == "Duck") {
-				EggDTO eggDTO = modelMapper.map(eggs.get(i), EggDTO.class);
-				eggDTOS.add(eggDTO);
-			}
-		}
-		return eggDTOS;
+		
+		Egg egg = eggDao.findById(eggID).orElse(null);
+		return modelMapper.map(egg, EggDTO.class);
 	}
-
+	
 	@Override
 	@Transactional(readOnly = true)
-	public List<EggDTO> findTurkeyEggDTOS() {
-		ModelMapper modelMapper = new ModelMapper();
-		List<EggDTO> eggDTOS = new ArrayList<>();
-		List<Egg> eggs = (List<Egg>) eggDao.findAll();
-		for (int i = 0; i < eggs.size(); i++) {
-			if(eggs.get(i).getSpecies() == "Turkey") {
-				EggDTO eggDTO = modelMapper.map(eggs.get(i), EggDTO.class);
-				eggDTOS.add(eggDTO);
-			}
-		}
-		return eggDTOS;
-	}
-
-	@Override
-	@Transactional(readOnly = true)
-	public Egg findById(Long eggID) {
+	public Egg findEggById(Long eggID) {
 		return eggDao.findById(eggID).orElse(null);
 	}
 
 	@Override
 	@Transactional
-	public Egg save(Egg egg) {
+	public Egg saveEgg(Egg egg) {
 		return eggDao.save(egg);
 	}
 
 	@Override
 	@Transactional
-	public void deleteById(Long eggID) {
-		eggDao.deleteById(eggID);		
+	public void deleteEggBySpecies(String species) {
+		
+		List<EggDTO> eggDTOS = findEggDTOSBySpecies(species);
+		
+		if (!eggDTOS.isEmpty()) {
+			Long eggID = eggDTOS.get(0).getId();
+			eggDao.deleteById(eggID);
+		}		
 	}
 
 }

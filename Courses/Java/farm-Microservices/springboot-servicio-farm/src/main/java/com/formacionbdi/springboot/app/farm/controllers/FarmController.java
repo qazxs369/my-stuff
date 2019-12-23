@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.formacionbdi.springboot.app.commons.models.entity.Chick;
+import com.formacionbdi.springboot.app.commons.models.entity.Bird;
 import com.formacionbdi.springboot.app.commons.models.entity.Egg;
 import com.formacionbdi.springboot.app.commons.models.entity.Farm;
 import com.formacionbdi.springboot.app.farm.models.dto.ChickDTO;
@@ -198,7 +198,7 @@ public class FarmController {
 		List<ChickDTO> farmChickDTOS = farmService.findAllFarmChickDTOS();
 		
 		for (int i = 0; i < farmChickDTOS.size(); i++) {
-			Chick farmChick = farmService.findChickById(farmChickDTOS.get(i).getId());
+			Bird farmChick = farmService.findChickById(farmChickDTOS.get(i).getId());
 			if(farmChick.getChickDays() < 10) {
 				farmService.updateChickById(farmChickDTOS.get(i).getId());
 				Integer chickDays = farmChick.getChickDays();

@@ -36,13 +36,17 @@ public class _12_BarkingDogChallenge {
 
     public static void main (String[] args) {
 
+        System.out.println(shouldWakeUp(true,1));
+        System.out.println(shouldWakeUp(false,2));
+        System.out.println(shouldWakeUp(true,8));
+        System.out.println(shouldWakeUp(true,-1));
     }
 
-    /*boolean shouldWakeUp (boolean barking, int hourOfDay){
-        if (hourOfDay <= 23 && hourOfDay >= 0) {
-
-        } else {
-
+    public static boolean shouldWakeUp (boolean barking, int hourOfDay){
+        if (barking && (( 0 <= hourOfDay && hourOfDay < 8) ||
+                ( 22 < hourOfDay && hourOfDay <= 23))){
+            return true;
         }
-    }*/
+        return false;
+    }
 }

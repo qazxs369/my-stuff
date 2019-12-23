@@ -27,45 +27,36 @@ public class EggController {
 		return eggService.findAllEggDTOS();
 	}
 	
-	@GetMapping("/listarChickEggs")
-	public List<EggDTO> listarChickEggs(){
-		return eggService.findChickEggDTOS();
-	}
-	
-	@GetMapping("/listarDuckEggs")
-	public List<EggDTO> listarDuckEggs(){
-		return eggService.findDuckEggDTOS();
-	}
-	
-	@GetMapping("/listarTurkeyEggs")
-	public List<EggDTO> listarTurkeyEggs(){
-		return eggService.findTurkeyEggDTOS();
+	@GetMapping("/listarEggs/{species}")
+	public List<EggDTO> listarChickEggs(@PathVariable String species){
+		return eggService.findEggDTOSBySpecies(species);
 	}
 	
 	@GetMapping("/verEgg/{eggID}")
-	public Egg detalle(@PathVariable Long eggID){
-		return eggService.findById(eggID);
+	public EggDTO verEgg(@PathVariable Long eggID){
+		return eggService.findEggDTOById(eggID);
 	}
 	
-	@PostMapping("/comprarEgg")
+	@PostMapping("/comprarEgg/{species}")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Egg comprar() {
+	public Egg comprarEgg(@PathVariable String species) {
 		Egg egg = new Egg();
 		egg.setEggDays(0);
-		return eggService.save(egg);
+		egg.setSpecies(species);
+		return eggService.saveEgg(egg);
 	}
 	
-	@DeleteMapping("/venderEgg/{eggID}")
+	@DeleteMapping("/venderEgg/{species}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void vender(@PathVariable Long eggID) {
-		eggService.deleteById(eggID);
+	public void venderEgg(@PathVariable String species) {
+		eggService.deleteEggBySpecies(species);
 	}
 	
 	@PutMapping("/updateEgg/{eggID}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Egg eggUpdate(@PathVariable Long eggID) {
-		Egg eggDB = eggService.findById(eggID);
+		Egg eggDB = eggService.findEggById(eggID);
 		eggDB.setEggDays(eggDB.getEggDays() + 1);
-		return eggService.save(eggDB);
+		return eggService.saveEgg(eggDB);
 	}
 }

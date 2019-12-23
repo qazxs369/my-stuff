@@ -9,15 +9,13 @@ public interface IEggService {
 
 	public List<EggDTO> findAllEggDTOS();
 	
-	public List<EggDTO> findChickEggDTOS();
+	public List<EggDTO> findEggDTOSBySpecies(String species);
 	
-	public List<EggDTO> findDuckEggDTOS();
+	public EggDTO findEggDTOById(Long eggID);
 	
-	public List<EggDTO> findTurkeyEggDTOS();
+	public Egg findEggById(Long eggID);
 	
-	public Egg findById(Long eggID);
+	public Egg saveEgg(Egg egg);
 	
-	public Egg save(Egg egg);
-	
-	public void deleteById(Long eggID);
+	public void deleteEggBySpecies(String species);
 }

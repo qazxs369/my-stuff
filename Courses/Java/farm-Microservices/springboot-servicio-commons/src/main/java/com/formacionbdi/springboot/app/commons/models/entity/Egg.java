@@ -18,6 +18,7 @@ public class Egg implements Serializable {
 
 	@Column(name = "egg_days")
 	private int eggDays;
+	
 	private String species;
 
 	
